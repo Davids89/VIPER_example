@@ -6,4 +6,6 @@
 //  Copyright © 2017 david. All rights reserved.
 //
 
-import Foundation
+protocol viewProtocol {
+    func setListWithObjects(objects: [String])
+}
