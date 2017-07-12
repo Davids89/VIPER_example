@@ -6,4 +6,7 @@
 //  Copyright © 2017 david. All rights reserved.
 //
 
-import Foundation
+class Person{
+    var name: String = ""
+    var lastName: String = ""
+}
