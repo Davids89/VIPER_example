@@ -10,6 +10,7 @@ import UIKit
 
 protocol PresenterProtocol {
     func addNewObjects()
+    func addNewObjectsWithData(name: String, lastname: String)
 }
 
 protocol InteractorResponse {
@@ -24,12 +25,16 @@ class Presenter: PresenterProtocol{
     
     //MARK: Protocol implementation
     func addNewObjects() {
-        
+        routing?.openAddView()
     }
 }
 
 extension Presenter: InteractorResponse{
     func updateObjects(objects: [String]) {
-        
+        view?.setListWithObjects(objects: objects)
+    }
+    
+    func addNewObjectsWithData(name: String, lastname: String) {
+        interactor!.addNewPersonWithData(name: name, lastname: lastname)
     }
 }
