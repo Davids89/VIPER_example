@@ -6,4 +6,12 @@
 //  Copyright © 2017 david. All rights reserved.
 //
 
-import Foundation
+protocol InteractorProtocol {
+    func addNewPersonWithData(name: String, lastname: String)
+}
+
+class Interactor {
+    
+    var presenter: Presenter?
+    
+}
