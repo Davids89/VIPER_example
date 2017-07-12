@@ -12,14 +12,13 @@ class TableViewController: UITableViewController, viewProtocol {
     
     var presenter: Presenter?
     var objects: [String]?
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //we must register the cell
         self.tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
         
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: Selector(("addNewObject")))
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addNewObject))
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -42,7 +41,7 @@ class TableViewController: UITableViewController, viewProtocol {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 1
+        return objects!.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -91,7 +90,7 @@ class TableViewController: UITableViewController, viewProtocol {
     
     // MARK: Private functions
     
-    private func addNewObject(){
+    @objc private func addNewObject(){
         presenter!.addNewObjects()
     }
     
